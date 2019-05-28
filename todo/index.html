@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>To do app</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+</head>
+<body>
+    <h1 class="headline">YOUR LIST</h1>
+    <div id="root">
+        <div class="add_item">
+    <input id="todo-text" type="text" placeholder="Новая задача" v-model="buffer">
+    <input id="add" type="button" value="Добавить"  v-on:click="add">
+        </div>
+        <div class="items"  >
+            <div class="item" v-bind:class="{complete:todo.done, deleted: todo.archive}" v-for="todo in todos.slice().reverse()">
+                 <div class="main">
+                     <div class="check" v-if="!todo.edit">   
+                        <label class="label--checkbox" v-on:click="done(todo.id)" >         
+                            <input type="checkbox" class="checkbox" :checked="todo.done" >
+                            {{todo.text}}
+                        </label>
+    
+                </div>
+                <div class="editable" v-if="todo.edit">
+                        <input type="input" class="" placeholder="enter text" v-model="todo.text">
+                </div>
+                <div class="buttons">
+                <div class="state" v-if="!todo.edit">
+                <button><i class="far fa-edit" v-on:click="edit(todo.id)"></i></button>
+                <button v-on:click="del(todo.id)"><i class="far fa-trash-alt"></i></button>
+                </div>
+                <div class="state" v-if="todo.edit">
+                    <button><i class="far fa-save" v-on:click="save(todo.id)"></i></button>
+                </div>
+                </div>
+                </div>
+                <p class="desc" v-for="addTodo in todo.descriptions" v-if="todo.descriptions[0]">
+                       {{addTodo.text}}
+                       <div class="new_additionalTask" v-if="!todo.descriptions[0]"></div>
+                       <input v-if="!todo.descriptions[0]" type="text" placeholder="Add подзадачу" v-model="additionalBuffer">
+                       <button><i class="far fa-save" v-on:click="additionAdd(todo.id)"></i></button>
+                </div>
+                    </p>  
+            </div> 
+         
+         
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="componentOne.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

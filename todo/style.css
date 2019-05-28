@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+     ;
+}
+
+body {
+    background-color: rgb(45, 32, 65); /* background*/
+    color: rgba(179, 255, 225, 0.856);
+}
+
+#add {
+    color: #fff;
+    border: 1px solid #fff;
+}
+
+input,button {
+    border: none;
+    background-color: transparent;
+    padding: 7px 16px;
+    color: rgb(255, 236, 236);
+}
+
+.headline {
+    margin-top: 20px;
+    text-align: center;/* заголовок по центру*/
+}
+
+#root {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center; /* выравнивание по горизонтали*/
+    padding: 20px;
+}
+
+
+
+#root .add_item {
+    
+    display: flex;
+    width: 100%;
+    flex-flow: row nowrap;
+    padding: 40px 0px;
+    justify-content: center;
+}
+
+#todo-text {
+    border-bottom: 1px solid #333333;
+    border-right: none;
+}
+.items {
+    width: 100%;
+    margin-top: 40px;
+}
+
+.items .item {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 40px 0px;
+    border-top: 1 px solid #333333;
+    border-bottom: 1px solid #333;
+    flex-direction: column;
+}
+
+.desc {
+    padding: 7px 32px 7px 64px;
+}
+
+
+.buttons button i {
+    font-size: 20px;
+    line-height: 20px;
+}
+
+.item.complete {
+    background-color: rgba(28, 180, 1, 0.63);
+}
+
+.item.deleted {
+    display: none;
+}
+
+.main {
+    width: 100%;
+    display:flex;
+    justify-content: space-between;
+    align-items: center
+}
+#root .add_item .item.complete {
+    border: none;
+    display: flex;
+}
+
+.editable {
+    font-size: 18px;
+    border-bottom: 1px solid grey;
+}
+
+.label--checkbox,
+.label--radio {
+  position: relative;
+  margin: .5rem;
+  
+  line-height: 135%;
+  cursor: pointer;
+}
+
+.checkbox {
+  position: relative;
+  background-image: url(milky-way-2695569_960_720.jpg) ;
+  margin: 0 1rem 0 0;
+  cursor: pointer;
+}
+.checkbox:before {
+  -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.45, 1.8, 0.5, 0.75);
+  -moz-transition: -moz-transform 0.4s cubic-bezier(0.45, 1.8, 0.5, 0.75);
+  transition: transform 0.4s cubic-bezier(0.45, 1.8, 0.5, 0.75);
+  -webkit-transform: rotate(-45deg) scale(0, 0);
+  -moz-transform: rotate(-45deg) scale(0, 0);
+  -ms-transform: rotate(-45deg) scale(0, 0);
+  -o-transform: rotate(-45deg) scale(0, 0);
+  transform: rotate(-45deg) scale(0, 0);
+  content: "";
+  position: absolute;
+  left: 0.1875rem;
+  top: 0.125rem;
+  z-index: 1;
+  width: 0.75rem;
+  height: 0.375rem;
+  border: 2px solid #16a085;
+  border-top-style: none;
+  border-right-style: none;
+}
+.checkbox:checked:before {
+  -webkit-transform: rotate(-45deg) scale(1, 1);
+  -moz-transform: rotate(-45deg) scale(1, 1);
+  -ms-transform: rotate(-45deg) scale(1, 1);
+  -o-transform: rotate(-45deg) scale(1, 1);
+  transform: rotate(-45deg) scale(1, 1);
+}
+.checkbox:after {
+  content: "";
+  position: absolute;
+  top: -0.125rem;
+  left: 0;
+  width: 1rem;
+  height: 1rem;
+  background: #fff;
+  border: 2px solid #f2f2f2;
+  cursor: pointer;
+}
